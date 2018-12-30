@@ -1,0 +1,32 @@
+.profile{
+    float: left;
+    padding-top: 90px;
+    padding-left: 20px;
+    /* padding-right: 2000px; */
+}
+
+.userBio{
+    font: 200;
+    font-family: 'Times New Roman', Times, serif;
+    color: #F7882F
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column1 {
+    float: left;
+    width: 20%;
+    /* padding: 10px; */
+  }
+  .column2{
+    /* float: left; */
+    /* position: relative; */
+    width: 70%;
+    padding: 10px;
+  }
+  .info{
+      float: left;
+      padding-top: 100px;
+  }
