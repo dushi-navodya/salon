@@ -17,22 +17,22 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     letter-spacing: 3px;
-    color: #F7882F;
+    color: #1a2930 ;
 }
 #header #logo h1 a, #header #logo h1 a:hover {
-    color: #000;
+    color: #c5c1c0 ;
     padding-left: 10px;
     border-left: 4px solid grey;
 }
 .tabs{
     padding-top: 50px;
-    color: #F7882F;
+    color: #f7ce3e ;
 }
 .colorLogo
 {
-    color: #F7882F;
+    color: #f7ce3e ;
 }
 .color{
-    background-color: #F7882F;
-    color:black
+    background-color: #f7ce3e ;
+    color:1a2930 
 }

@@ -32,7 +32,7 @@ constructor(props){
           <div className="container">
       
             <div id="logo" className="pull-left">
-              <h1><a href="/" className="scrollto">STYLIST</a></h1>
+              <h1><a href="/" className="scrollto" style={{color:"#f7ce3e "}}>STYLIST</a></h1>
             </div>
             
       

@@ -21,13 +21,15 @@ import {
             },
             sessions:[],
             jobs:[],
-            prices:[]
+            prices:[],
+            
 
         }
     }
+   
     componentDidMount=()=>{
       const {freelancer} =this.state;
-
+      console.log(this.state.freelancer)
       axios.get('http://localhost:8080/stylistCalendar/getAvailableSession', {
         params: {
            id : freelancer.id,
@@ -47,7 +49,7 @@ import {
         console.log(this.state.freelancer)
         console.log(this.state.sessions)     
         this.getFreelancerJob(); 
-        this.getFreelancerRate()   
+        this.getFreelancerRate();
       })
     }
 
@@ -232,7 +234,7 @@ import {
               sm: { span: 16, offset: 8 },
             }}
           >
-            <Button type="primary" htmlType="submit">Submit</Button>
+            <Button type="primary" htmlType="submit" style={{background:"#1a2930"}}>Submit</Button>
           </Form.Item>
         </Form>
       );

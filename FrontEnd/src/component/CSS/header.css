@@ -13,8 +13,8 @@
     right: 0;
     transition: all 0.5s;
     z-index: 997;
-    background-color: #dcc7aa;
-    box-shadow: 5px 0px 15px #c3c3c3;
+    background-color: #0a1612 ;
+    box-shadow: 5px 0px 15px #f7ce3e ;
 }
 #header #logo h1 {
     font-size: 34px;
@@ -26,9 +26,9 @@
     letter-spacing: 3px;
 }
 #header #logo h1 a, #header #logo h1 a:hover {
-    color: #000;
+    color: #c5c1c0  ;
     padding-left: 10px;
-    border-left: 4px solid grey;
+    border-left: 4px solid #0a1612 ;
 }
 #nav-menu-container {
     float: right;
@@ -50,19 +50,19 @@
     list-style: none;
 }
 .header-scrolled .nav-menu li:hover > a, .header-scrolled .nav-menu > .menu-active > a {
-    color: #F7882F;
+    color: #0a1612 ;
 }
 .header-scrolled .nav-menu a {
     color: black;
 }
 .nav-menu li:hover > a, .nav-menu > .menu-active > a {
-    color: #F7882F;
+    color: #c5c1c0   ;
 }
 .nav-menu a {
     padding: 0 8px 10px 8px;
     text-decoration: none;
     display: inline-block;
-    color: #000;
+    color: #f7ce3e ;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 13px;
@@ -93,7 +93,7 @@
     top: 0;
     left: 0;
     position: fixed;
-    background: rgba(0, 0, 0, 0.7);
+    background: #f7ce3e (0, 0, 0, 0.7);
     display: none;
 }
 body.mobile-nav-active #mobile-nav {
@@ -105,7 +105,7 @@ body.mobile-nav-active #mobile-nav {
     padding-top: 18px;
     bottom: 0;
     z-index: 998;
-    background: rgba(0, 0, 0, 0.8);
+    background: #f7ce3e (0, 0, 0, 0.8);
     left: -260px;
     width: 260px;
     overflow-y: auto;
@@ -134,7 +134,7 @@ body.mobile-nav-active #mobile-nav {
     font-family: "Montserrat", sans-serif;
 }
 #mobile-nav ul .menu-has-children i.fa-chevron-up {
-    color: #F7882F;
+    color: #f7ce3e  ;
 }
 #mobile-nav ul .menu-has-children i {
     position: absolute;
@@ -145,7 +145,7 @@ body.mobile-nav-active #mobile-nav {
     color: #fff;
 }
 #mobile-nav ul .menu-item-active {
-    color: #F7882F;
+    color: #0a1612 ;
 }
 #mobile-nav ul li li {
     padding-left: 30px;
@@ -180,7 +180,7 @@ body.mobile-nav-active #mobile-nav {
 .nav-menu ul {
     margin: 4px 0 0 0;
     padding: 10px;
-    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    box-shadow: 0px 0px 30px #0a1612(127, 137, 161, 0.25);
     background: #fff;
 }
 .nav-menu ul {
@@ -214,8 +214,8 @@ body.mobile-nav-active #mobile-nav {
 .login{
     float: right;
     position: relative;
-    background: #F7882F;
-    color: #000;
+    background: #f7ce3e  ;
+    color: #0a1612  ;
     border: px solid rgba(0, 0, 0, 0.7);
     border-radius: 15px;
     margin-right: 40px;

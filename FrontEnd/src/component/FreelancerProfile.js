@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Card,Rate, Input,Tag   } from 'antd';
+import { List, Card,Rate, Input,Tag, Button   } from 'antd';
 import axios from 'axios'
 import'./CSS/freelancerProfile.css'
 import HeaderLayout from '../component/Header';
@@ -98,9 +98,8 @@ class FreelancerProfile extends React.Component{
         const {size} = this.state;
         return(
             <div>
-                <div>
-                     <HeaderLayout/>   
-                </div>
+                <HeaderLayout/>
+            
                 <div className="row no-gutters">
                     <div className="col-3">
                         <div className="profile">
@@ -119,24 +118,35 @@ class FreelancerProfile extends React.Component{
                             <div className="userBio">
                                  <TextArea placeholder="Stylist Bio" value={freelancer.bio}  autosize={{ minRows: 2, maxRows: 6 }}/>   
                             </div>     
-                            <div className="col-md-6">
-                            <div> 
-                            <h4>Job Title :
-                            <List
-                            grid={{
-                            gutter: 16,  xs: 1, sm: 2, md: 2,lg: 2, xl: 2, xxl: 3,
-                            }}
-                            dataSource={job}
-                            renderItem={item => (
-                                <List.Item style={{float:'right'}}>
-                                    <Tag color="#F7882F" size={size} >{item}</Tag>
-                                </List.Item>
-                   
-                            )}/>
-                            </h4>
+                            <div >
+                            <div > 
+                                
+                                <h4>Job Title :
+                                <div className="row justify-content-around">
+                                <div className="col-4"> 
+                                    <List
+                                    grid={{
+                                    gutter: 16,  xs: 1, sm: 2, md: 2,lg: 2, xl: 2, xxl: 3,
+                                    }}
+                                    dataSource={job}
+                                    renderItem={item => (
+                                        <List.Item style={{float:'right'}}>
+                                            <Tag backgroundcolor="#1a2930" color ="#1a2930"size={size} >{item}</Tag>
+                                        </List.Item>
+                        
+                                    )}/>
+                                    
+                                </div>
+                                </div>
+                                </h4>
+                            <div className="row justify-content-center">
+                                <div className="col-4">                                
+                                <Button type="primary" href="/viewBooking"size={size} style={{background:"#1a2930", borderBlockEndColor:"#f7ce3e", color:"#f7ce3e"}}>View Booking</Button>
+                                </div>
+                                </div>
                             </div>
                          </div>
-                         
+                                
                         </div>                     
                      
                      <div className="col-9">
@@ -144,9 +154,10 @@ class FreelancerProfile extends React.Component{
                              <FreelancerCalender freelancer={freelancer.id}/>
                          </div>
                      </div>
-                
+                       
                 </div>
-            </div>
+                </div>
+            
 
 
         )

@@ -247,13 +247,7 @@ class SearchStylist extends React.Component{
             this.getStylistBySession();
         }
        
-        this.setSearch();
-    }
-
-    setSearch=()=>{
-        this.props.setSearch(this.state)
-    }
-
+       }
     handleChange = (value) => {
         this.setState({ value });
       }
@@ -320,7 +314,7 @@ class SearchStylist extends React.Component{
                 renderItem={item => (
                 <Link key={item.id} to={{ pathname: "/freelancerProfile", data: item.id, isStylist: item.isStylist, isEducator: item.isEducator }}>
               <List.Item >
-              <Card title={item.firstName} className="col-auto mr-auto" style={{background:"#F7882F"}}>
+              <Card title={item.firstName} className="col-auto mr-auto" style={{background:"#1a2930"}}>
                 <Card cover={<img alt="example" src="https://cdn2.iconfinder.com/data/icons/avatar-2/512/iri_girl_face-512.png" className="col"/>} >
                                                 <Meta title={"Name : "+item.firstName+" " +item.lastName}/>
                                                 <Meta title={"Experience: "+item.experience} />

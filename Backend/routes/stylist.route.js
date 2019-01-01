@@ -126,7 +126,23 @@ Route.get('/getAvailableStylistByPrice', function(req, res){
       })
 });
 
+Route.get('/updateStylist', function(req, res){
+    console.log(req.query)
+    Stylists.findOne({where : {id : req.query.id}}).then(stylist=>{
+        console.log(stylist)
+        stylist.update({
+            experience: req.body.experience,
+            bio : req.body.bio,
+            isStylist:req.body.isStylist,
+            isEducator:req.body.isEducator,
+            stylistRate:req.body.stylistRate,
+            educatorRate:req.body.educatorRate,
 
+        }).then({
+
+        })
+    })
+});
 
 Route.post('/save', function(req, res){
     Stylists.create(req.body).then(stylist =>{    

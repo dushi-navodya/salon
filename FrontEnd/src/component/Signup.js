@@ -225,7 +225,7 @@ function callback(key) {
             <h1><a href="/" className="scrollto" className="colorLogo">STYLIST</a></h1>
             </div>
             <div className="tabs">
-        <Tabs defaultActiveKey="1" onChange={callback} style={{color: "#F7882F"}} >
+        <Tabs defaultActiveKey="1" onChange={callback} style={{color: "#f7ce3e  "}} >
             <TabPane tab="Freelancer" key="1" >
                 <Form onSubmit={this.handleFreelancerSubmit}>
                 <FormItem
@@ -351,7 +351,7 @@ function callback(key) {
                         )}
                     </FormItem>
                     <FormItem {...tailFormItemLayout}>
-                        <Button type="primary" htmlType="submit" style={{backgroundColor: "#F7882F", border: "2px solid rgba(0, 0, 0, 0.7)"}}>Register</Button>
+                        <Button type="primary" htmlType="submit" style={{backgroundColor: "#1a2930 ", border: "2px solid rgba(0, 0, 0, 0.7)", color:"#f7ce3e "}}>Register</Button>
                     </FormItem>
         </Form>
         </TabPane>

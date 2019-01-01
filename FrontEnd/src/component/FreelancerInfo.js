@@ -19,6 +19,7 @@ class FreelancerInfo extends React.Component{
       value: moment(),
       selectedValue: moment(),
       freelancer:{
+        id:this.props.freelancer,
         firstName:'',
         lastName:'',
         experience:'',
@@ -26,15 +27,18 @@ class FreelancerInfo extends React.Component{
         educatorRate:'',
         stylistRate:'',
       },
-      job:[]
+      job:[],
+      booking:[]
     }
   }
+ 
   getStylistById=()=>    
   {
       const { freelancer} = this.state;
+      console.log(freelancer.id)
     axios.get('http://localhost:8080/stylist/getstylistById', {
       params: {
-         id:1
+         id:freelancer.id
       }
     })
     .then(response => {
@@ -46,6 +50,7 @@ class FreelancerInfo extends React.Component{
       this.setState({ freelancer: { ...this.state.freelancer, stylistRate: response.data[0].stylistRate } });
       this.setState({ freelancer: { ...this.state.freelancer, experience: response.data[0].experience } });
       console.log(this.state.freelancer)
+      
     })
    this.getFreelancerJob();
   }
@@ -75,8 +80,91 @@ class FreelancerInfo extends React.Component{
   }
   componentDidMount=()=>
   {
-    this.getStylistById()
+    this.getStylistById();
+    this.getBookingDates();
+    
   }
+  getBookingDates=()=>
+  {
+    const  {booking} = this.state
+    const {freelancer} = this.state
+    axios.get('http://localhost:8080/stylistBooking/getBookings', {
+    params: {
+       id:this.state.freelancer.id
+    }
+  })
+  .then(response => {
+    console.log(response.data)
+    this.setState({booking:response.data})
+    console.log(booking)
+
+  })
+    
+  }
+
+  getListData(value) {
+
+    var valueDate=value.date();
+    var valueMonth=value.month();
+    var valueYear=value.year();
+
+ 
+    var mydate=''
+    var mysaloon='';
+    var myslot=''
+    var myelement=''
+    var arr=[];
+    var todate
+    var tomonth
+    var toyear
+     this.state.booking.forEach(element=>{
+         var date=new Date(element.date)
+          todate=date.getDate();
+         tomonth=date.getMonth();
+         toyear=date.getFullYear();
+      
+         if(todate===valueDate && tomonth===valueMonth&&toyear===valueYear){
+            
+         mydate=todate;
+         mysaloon=element.salon_name;
+         myslot=element.sessionName;
+         myelement=element
+         arr.push(myelement) 
+         console.log(mysaloon)
+         }
+     })
+     return [mydate,mysaloon,myslot,arr,tomonth,toyear]
+
+   }
+
+
+ dateCellRender(value) {
+     var arr
+    
+     arr=this.getListData(value)[3];  
+
+     if(value.date()===this.getListData(value)[0] && value.month()===this.getListData(value)[4]&& value.year()===this.getListData(value)[5]){
+         console.log('return date',this.getListData(value)[3])
+       
+         return(
+             <div>
+
+                 {
+                     <List style={{ fontSize: 10 }} dataSource={arr}
+                         renderItem={item => (
+
+                             <List.Item >
+                                 <label>{item.salon_name+" "+item.sessionName}</label>
+                                 <label>{item.slot}</label>
+                             </List.Item>
+                         )}
+                     />
+                 }
+             </div>
+     );
+    }
+     }
+
   onPanelChange=(value, mode)=> {
     console.log(value, mode);
   }
@@ -106,7 +194,7 @@ class FreelancerInfo extends React.Component{
          <div className="col-3">
          <div className="profile">
          <Card
-            hoverable
+            // hoverable
             style={{ width: 450}}
              cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
             >
@@ -119,14 +207,17 @@ class FreelancerInfo extends React.Component{
          </div>
         
          <div className="col-3">
-         <div className="info">
-            <FreelancerInfoUpdateForm/>
+         {/* <div className="info" > */}
+         <div className="col-auto mr-auto" style={{paddingTop:"120px"}}>
+         <FreelancerInfoUpdateForm/>
          </div>
+           
+         {/* </div> */}
            
          </div>
          <div className="col-6">
          <div className="info">
-         <Calendar fullscreen={true} onPanelChange={this.onPanelChange} style={{background:"#F7882F"}} disabledDate={this.disabledDate}/>
+         <Calendar fullscreen={true} onPanelChange={this.onPanelChange} style={{background:"#c5c1c0 "}} disabledDate={this.disabledDate}  dateCellRender={e=>this.dateCellRender(e)}/>
          </div>
         
          </div>

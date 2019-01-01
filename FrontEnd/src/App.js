@@ -6,6 +6,7 @@ import Login from './component/Login'
 import FreelancerProfile from './component/FreelancerProfile';
 import Home from'./component/Home'
 import FreelancerInfo from './component/FreelancerInfo'
+// import ViewBooking from'./component/ViewBooking'
 import 'antd/dist/antd.css';
 
 import {Switch, Route, Router} from 'react-router-dom';
@@ -24,6 +25,7 @@ class App extends Component {
       <Route exact path='/signUp' component={Signup}/>
       <Route exact path='/freelancerProfile' component={FreelancerProfile}/>
       <Route exact path='/freelancerinfo' component={FreelancerInfo}/>
+      {/* <Route exact path='/viewBooking' component={ViewBooking}/> */}
   
       </Switch>
 

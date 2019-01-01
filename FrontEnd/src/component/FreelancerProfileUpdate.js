@@ -3,9 +3,9 @@ import {Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button
 } from 'antd'; 
 
 const FormItem = Form.Item;
-  const Option = Select.Option;
-  const AutoCompleteOption = AutoComplete.Option;
-
+const Option = Select.Option;
+const AutoCompleteOption = AutoComplete.Option;
+const { TextArea } = Input;
 class FreelancerProfileUpdateForm extends React.Component{
     constructor(props){
         super(props)
@@ -167,8 +167,8 @@ class FreelancerProfileUpdateForm extends React.Component{
                         })(     
                             <Checkbox.Group style={{ width: "100%" }}>
                             <Row>
-                              <Col span={8} ><Checkbox value="E">EDUCATOR</Checkbox></Col>
-                              <Col span={8}><Checkbox value="S">STYLIST</Checkbox></Col>
+                              <Col span={9} ><Checkbox value="E">EDUCATOR</Checkbox></Col>
+                              <Col span={9}><Checkbox value="S">STYLIST</Checkbox></Col>
                               
                             </Row>
                           </Checkbox.Group>     
@@ -186,10 +186,44 @@ class FreelancerProfileUpdateForm extends React.Component{
                         <Input  type='number' onChange={e=>this.setState({freelancer:{...freelancer,experience: e.target.experience}})} pattern='^-?[0-9]\d*\.?\d*$'/>,
                         )}
                     </FormItem>
+                    <FormItem
+                        {...formItemLayout}
+                        label="Stylist Rate"
+                    >
+                        {getFieldDecorator('stylistRate', {
+                        // initialValue : {experience : this.state.freelancer.experience},
+                        rules: [{ required: false, message: 'Please input your Experience in years!',whitespace: false  }],
+                        })(
+                        <Input  type='number' onChange={e=>this.setState({freelancer:{...freelancer,experience: e.target.experience}})} pattern='^-?[0-9]\d*\.?\d*$'/>,
+                        )}
+                    </FormItem>
+                    <FormItem
+                        {...formItemLayout}
+                        label="Educator Rate"
+                    >
+                        {getFieldDecorator('educatorRate', {
+                        // initialValue : {experience : this.state.freelancer.experience},
+                        rules: [{ required: false, message: 'Please input your Experience in years!',whitespace: false  }],
+                        })(
+                        <Input  type='number' onChange={e=>this.setState({freelancer:{...freelancer,experience: e.target.experience}})} pattern='^-?[0-9]\d*\.?\d*$'/>,
+                        )}
+                    </FormItem>            
+
+                    <FormItem
+                        {...formItemLayout}
+                        label="Add Bio"
+                    >
+                        {getFieldDecorator('bio', {
+                        // initialValue : {experience : this.state.freelancer.experience},
+                        rules: [{ required: false, message: 'Please input your Experience in years!',whitespace: false  }],
+                        })(
+                            <TextArea rows={4} />
+                        )}
+                    </FormItem>
 
                     
                     <FormItem {...tailFormItemLayout}>
-                        <Button type="primary" htmlType="submit" style={{backgroundColor: "#F7882F", border: "2px solid rgba(0, 0, 0, 0.7)"}}>Update Profile</Button>
+                        <Button type="primary" htmlType="submit" style={{backgroundColor: "#1a2930", border: "2px solid rgba(0, 0, 0, 0.7)"}}>Update Profile</Button>
                     </FormItem>
         </Form>
         

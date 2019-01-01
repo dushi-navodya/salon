@@ -26,12 +26,14 @@ class FreelancerCalender extends React.Component{
             educatorRate:'',
         },
         bookingDetails : {
-
+          date:'',
+          session:'',
         },
-        booking:[]
-        }
+        booking:[],
+        bookedDatesandSessions:[]
     }
-      
+  }
+    
       
       onSelect = (value) => {
         const {freelancer}=this.state
@@ -46,7 +48,7 @@ class FreelancerCalender extends React.Component{
       onPanelChange = (value) => {
         this.setState({ value });
       }
-      componentWillMount(){
+      componentDidMount=()=>{
         const { freelancer} = this.state;
       axios.get('http://localhost:8080/stylist/getstylistById', {
         params: {
@@ -65,6 +67,7 @@ class FreelancerCalender extends React.Component{
         
         
       })
+      
      
       }
       getAavailableSession=()=>{
@@ -89,7 +92,7 @@ class FreelancerCalender extends React.Component{
                   
         })
       }
-      setModal2Visible(modal2Visible) {
+      setModal2Visible=(modal2Visible)=> {
         this.setState({ modal2Visible });
         console.log("kefh")
         console.log(this.state.booking) 
@@ -115,9 +118,9 @@ class FreelancerCalender extends React.Component{
       const {booking} = this.state
         return(
             <div>
-                <Calendar value={value} onSelect={this.onSelect} onPanelChange={this.onPanelChange} size={size} disabledDate={this.disabledDate} style={{backgroundColor:"#F7882F",color:"black", padding:"10px"}}/>
+                <Calendar value={value} onSelect={this.onSelect} onPanelChange={this.onPanelChange} size={size} disabledDate={this.disabledDate} style={{backgroundColor:"#c5c1c0",color:"black", padding:"10px"}}/>
                 <Modal
-                    style ={{background:"#F7882F", color:"black"}}
+                    style ={{background:"#f7ce3e", color:"black"}}
                     title={freelancer.firstName}
                     centered
                     visible={this.state.modal2Visible}

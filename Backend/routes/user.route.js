@@ -33,6 +33,20 @@ Route.get('/getUser', function(req, res){
       })
 });
 
+Route.get('/updateUser', function(req, res){
+    console.log(req.query)
+    User.findOne({where : {id : req.query.id}}).then(user=>{
+        console.log(user.id)
+        user.update({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email:req.body.email
+        }).then({
+
+        })
+    })
+});
+
 Route.post('/register', function(req, res){
     console.log(req.body);
     User.create(req.body).then(user =>{    
